@@ -3,12 +3,15 @@ import streamlit as st
 
 import pandas as pd    #eda pkg
 
+from db_fxns import create_table,add_data,view_all_data
+
 def main():
     st.title("ToDo App SB")
 
-    menu = ["create","read","update","delete","about"]
+    menu = ["Create","Read","Update","Delete","About"]
     choice = st.sidebar.selectbox("Menu",menu)
 
+    create_table()
     if choice == "create":
         st.subheader("Add Items")
 
@@ -22,10 +25,13 @@ def main():
             task_due_date = st.date_input("Due Date")
 
         if st.button("Add Task"):
+            add_data(task,task_status,task_due_date)
             st.success("Succesfull added data:{}".format(task))
 
     elif choice == "Read":
-        st.subheader("view items")
+        st.subheader("View Items")
+        result = view_all_data()
+        st.write(result)
 
     elif choice == "Update":
         st.subheader("Edit/Update Items")
