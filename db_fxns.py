@@ -21,3 +21,14 @@ def view_all_data():
     c.execute('SELECT * FROM tasktable')
     data = c.fetchall()
     return data
+
+def view_unique_tasks():
+    c.execute('SELECT DISTINCT task FROM tasktable')
+    data = c.fetchall()
+    return data
+
+def get_task(task):
+    c.execute('SELECT * FROM tasktable WHERE task="{}"'.format(task))
+    data = c.fetchall()
+    return data
+
