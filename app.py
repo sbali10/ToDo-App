@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd    #eda pkg
 import plotly.express as px
 
-from db_fxns import create_table,add_data,view_all_data,get_task,view_unique_tasks
+from db_fxns import (create_table,add_data,view_all_data,get_task,view_unique_tasks,edit_task_data,delete_data)
 
 def main():
     st.title("ToDo App SB")
@@ -76,16 +76,37 @@ def main():
                 new_task_status = st.selectbox(task_status,["ToDo","Doing","Done"])
                 new_task_due_date = st.date_input(task_due_date)
 
-            if st.button("Add Task"):
-                add_data(task,task_status,task_due_date)
-                st.success("Succesfull added data:{}".format(task))
+            if st.button("Update Task"):
+                edit_task_data(new_task,new_task_status,new_task_due_date,task,task_status,task_due_date)
+                st.success("Succesfull Updated:: {} To ::{}".format(task,new_task))
 
+        result2 = view_all_data()
+        df2 = pd.DataFrame(result2,columns=['Task','Status','Due Date'])
+        with st.beta_expander("Updated Data"):
+            st.dataframe(df2)
 
     elif choice == "Delete":
         st.subheader("Delete Item")
+        result = view_all_data()
+        df = pd.DataFrame(result,columns=['Task','Status','Due Date'])
+        with st.beta_expander("Current Data"):
+            st.dataframe(df)
+
+        list_of_task = [i[0] for i in view_unique_tasks()]
+        selected_task = st.selectbox("Task To Delete",list_of_task)
+        st.warning("Do you want to Delete ::{}".format(selected_task))
+        if st.button("Delete Task"):
+            delete_data(selected_task)
+            st.success("Task has been succesfully deleted")
+
+        new_result = view_all_data()
+        df2 = pd.DataFrame(new_result,columns=['Task','Status','Due Date'])
+        with st.beta_expander("Updated Data"):
+            st.dataframe(df2)
 
     else:
         st.subheader("About")
+        st.write(" Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do, at most. This ToDo-App is created to test CRUD functionalities by sbali ")
 
 if __name__== '__main__':
     main()
