@@ -1,4 +1,5 @@
-# todo-app
+### todo-app
+
 pip install streamlit
 
 
@@ -7,7 +8,8 @@ streamlit run app.py
 
 
 
-#sqlite
+###sqlite
+
 sudo apt install sqlite3
 
 sqlite3 data.db
