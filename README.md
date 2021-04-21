@@ -1,3 +1,7 @@
+This ToDo-App is created to test CRUD functionalities. Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.
+
+
+
 ### todo-app
 
 pip install streamlit
