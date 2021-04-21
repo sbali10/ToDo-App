@@ -9,6 +9,10 @@ pip install streamlit
 
 streamlit run app.py
 
+![image](https://user-images.githubusercontent.com/47417469/115628104-c11e8200-a308-11eb-9b9b-94f3c2224fc2.png)
+
+
+![image](https://user-images.githubusercontent.com/47417469/115628147-dabfc980-a308-11eb-9ee2-782bfbf46b11.png)
 
 
 
