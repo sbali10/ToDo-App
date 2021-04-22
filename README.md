@@ -1,4 +1,4 @@
-This ToDo-App is created to test CRUD functionalities. Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.
+This ToDo-App is developed with python to test CRUD functionalities. Create, Read, Update, and Delete (CRUD) are the four basic functions that models should be able to do.
 
 
 
