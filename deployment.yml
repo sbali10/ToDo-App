@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: worker
-  name: worker
+  name: sb-todo-app
 spec:
   replicas: 1
   selector:
