@@ -8,7 +8,7 @@ docker run -p 8501:8501 IMAGEID
   
 ##########################################################################################
 
-kubectl apply -f /k8s-config
+kubectl apply -f .\k8s-config\
 
 minikube service todo-app      <required only for minikube>
   
