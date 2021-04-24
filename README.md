@@ -4,7 +4,7 @@ This ToDo-App is developed with python to test CRUD functionalities. Create, Rea
 
 docker build .
 
-docker run -p 8501:8501 <IMAGEID>
+docker run -p 8501:8501 IMAGEID
   
 ##########################################################################################
 
